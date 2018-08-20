@@ -1,3 +1,7 @@
+#Nota dit project kan niet online getest worden
+En ook de lokale versie is redelijk kapot op dit moment, dit doordat de anapassingen om het op heroku te krijgen drastisch waren.
+Op mijn verdediging zal ik proberen aan te tonen dat ik wel werkende software had (in localhost).
+
 # Project iShareEconomy
 This website will aim to implement a new, self-designed system of share-economy based on existing share economy ideas. The ultimate goal of this project is to cut the cost of daily life, stop over-consumption, protect the enviroment and above all reconect neighbourhoods and form trusting and sharing communities!
 
