@@ -3,7 +3,7 @@ var router = express.Router();
 let mongoose = require('mongoose');
 let LendObject = mongoose.model('LendObject');
 module.exports = router;
-router.get('/gmapi'), function(req,res,next){
+router.get('/gmaps'), function(req,res,next){
   res.json(process.env.GOOGLE_MAPS_API);
 }
 

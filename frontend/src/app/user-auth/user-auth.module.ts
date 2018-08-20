@@ -11,6 +11,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { RealTimeService } from './real-time.service';
 import { basehttpInterceptorProviders } from '../http-interceptors';
 import { AppComponent } from '../app.component';
+import { HttpClient } from '@angular/common/http';
 
 // import { basehttpInterceptorProviders } from '../http-interceptors';
 const routes = [
@@ -27,7 +28,7 @@ const routes = [
     FormsModule,
     AngularFontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: 'FAKEAPI'
+      apiKey: UserAuthModule.api
     }),
     RouterModule.forChild(routes),
   ],
@@ -42,4 +43,11 @@ const routes = [
   ],
   exports: []
 })
-export class UserAuthModule {}
+export class UserAuthModule {
+  public static api: string;
+  constructor(private http: HttpClient) {
+    http.get('API/gmaps').subscribe(
+      p => UserAuthModule.api = p.toString()
+    );
+  }
+}

@@ -69,7 +69,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'FAKEAPI'
+      apiKey: MainModule.api
     }),
     RouterModule.forChild(appRoutes),
 
@@ -112,5 +112,12 @@ const appRoutes: Routes = [
     ReturnLendObjectDialogComponent
   ]
 })
-export class MainModule {}
+export class MainModule {
+  public static api: string;
+  constructor(private http: HttpClient) {
+    http.get('API/gmaps').subscribe(
+      p => MainModule.api = p.toString()
+    );
+  }
+}
 
