@@ -140,7 +140,6 @@ export class RegisterComponent implements OnInit {
     let user = new User(this.user.value.username, this.user.value.firstname,
     this.user.value.lastname, this._val, {'lat': this.lat, 'lng': this.lng});
     user.password = this.passwordControl.value;
-    console.log(this.passwordControl.value);
     this._authenticationService
       .register(user)
       .subscribe(

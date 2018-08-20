@@ -12,6 +12,7 @@ import { RealTimeService } from './real-time.service';
 import { basehttpInterceptorProviders } from '../http-interceptors';
 import { AppComponent } from '../app.component';
 import { HttpClient } from '@angular/common/http';
+import { GOOGLE_MAPS_API } from '../../environments/environment.prod';
 
 // import { basehttpInterceptorProviders } from '../http-interceptors';
 const routes = [
@@ -19,7 +20,7 @@ const routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent }
 ];
-
+const api = GOOGLE_MAPS_API;
 @NgModule({
   imports: [
     CommonModule,
@@ -28,7 +29,7 @@ const routes = [
     FormsModule,
     AngularFontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: UserAuthModule.api
+      apiKey: UserAuthModule.api || api
     }),
     RouterModule.forChild(routes),
   ],

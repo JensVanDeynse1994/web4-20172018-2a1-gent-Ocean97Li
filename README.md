@@ -6,12 +6,15 @@ This website will aim to implement a new, self-designed system of share-economy 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
 ## how to run
-This project requires a google maps api key.
+This project requires a google maps api key, which I have supplied for demonstration purposes.
+When running on local dev server the API must be provided from 
+
 
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run back-end with 'npm run start-local' from root
+Run front-end with 'npm start' from frontend
 
 ## Code scaffolding
 

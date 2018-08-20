@@ -46,13 +46,14 @@ import { AuthGuardService } from '../user-auth/auth-guard.service';
 import { HttpClient } from '@angular/common/http';
 import { Http } from '@angular/http';
 import { DialogDataServiceService } from './services/dialog-data-service.service';
+import { GOOGLE_MAPS_API } from '../../environments/environment.prod';
 
 
 const appRoutes: Routes = [
   { path: 'main', canActivate: [ AuthGuardService ], component: MainComponent},
   { path: '**', redirectTo: 'login'}
 ];
-
+const api = GOOGLE_MAPS_API;
 @NgModule({
   imports: [
     CommonModule,
@@ -69,7 +70,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: MainModule.api
+      apiKey: MainModule.api || api
     }),
     RouterModule.forChild(appRoutes),
 
