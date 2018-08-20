@@ -70,7 +70,7 @@ const api = GOOGLE_MAPS_API;
     ReactiveFormsModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: MainModule.api || api
+      apiKey: MainModule.api.toString() || api
     }),
     RouterModule.forChild(appRoutes),
 
