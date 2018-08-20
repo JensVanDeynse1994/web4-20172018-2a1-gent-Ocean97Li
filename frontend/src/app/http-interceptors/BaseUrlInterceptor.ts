@@ -5,8 +5,9 @@ import {
   HttpInterceptor,
   HttpRequest
 } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import * as Observable_1 from 'rxjs/Observable';
 import { BACKEND_URL } from '../../environments/environment';
+
 
 @Injectable()
 export class BaseUrlInterceptor implements HttpInterceptor {
@@ -15,7 +16,7 @@ export class BaseUrlInterceptor implements HttpInterceptor {
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  ): Observable_1.Observable<HttpEvent<any>> {
     if (BACKEND_URL) {
       req = req.clone({
         url: `${BACKEND_URL}${req.url}`
