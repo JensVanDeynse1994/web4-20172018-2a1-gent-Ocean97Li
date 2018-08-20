@@ -1,4 +1,4 @@
-<div [ngClass]="{close:_dissappearAnimation}" class="searchbar ui icon right action input white">
+<div [ngClass]="{close: dissappearAnimation}" class="searchbar ui icon right action input white">
   <input [value]='filtername' type=text class="custum_input ui text" (keyup)='filterUser$.next($event.target.value)' placeholder="Search ...">
   <select [(ngModel)]="searchType" value=searchType class="select ui left compact selection dropdown">
     <option *ngFor='let type of searchTypes'>

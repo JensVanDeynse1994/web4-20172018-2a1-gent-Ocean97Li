@@ -3,6 +3,7 @@ import { User } from '../../../models/user.model';
 import { LendObject } from '../../../models/lend-object.model';
 import { MatDialog } from '@angular/material';
 import { InfoLendObjectComponent } from '../info-lend-object/info-lend-object.component';
+import { DialogDataServiceService } from '../../../services/dialog-data-service.service';
 
 
 @Component({
@@ -14,10 +15,12 @@ export class LendObjectComponent implements OnInit {
   @Input() public information: boolean;
   @Input() public selected: boolean;
   @Input() public selectable: boolean;
-  private _obj: LendObject;
+  public _obj: LendObject;
   @Output() private sendObject: EventEmitter<LendObject>;
 
-  constructor(public dialog: MatDialog) {
+  constructor(
+    private dialodata: DialogDataServiceService,
+    public dialog: MatDialog) {
     this.sendObject = this.sendObject = new EventEmitter();
   }
   @Input() set lendObject(obj: LendObject) {
@@ -89,6 +92,7 @@ export class LendObjectComponent implements OnInit {
 
   private openDialog(): void {
     if (this.information) {
+    this.dialodata.data = this._obj;
     const dialogRef = this.dialog.open(InfoLendObjectComponent, {
       width: '480px',
       data: {

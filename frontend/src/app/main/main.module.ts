@@ -45,6 +45,7 @@ import { httpInterceptorProviders } from '../http-interceptors';
 import { AuthGuardService } from '../user-auth/auth-guard.service';
 import { HttpClient } from '@angular/common/http';
 import { Http } from '@angular/http';
+import { DialogDataServiceService } from './services/dialog-data-service.service';
 
 
 const appRoutes: Routes = [
@@ -99,7 +100,8 @@ const appRoutes: Routes = [
     SelectedUserService,
     MatDialog,
     MatDatepicker,
-    httpInterceptorProviders
+    httpInterceptorProviders,
+    DialogDataServiceService
   ],
   entryComponents: [
     AddLendObjectDialogComponent,

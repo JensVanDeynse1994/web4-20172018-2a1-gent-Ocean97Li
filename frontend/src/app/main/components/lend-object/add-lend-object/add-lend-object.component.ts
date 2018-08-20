@@ -33,7 +33,7 @@ export class AddLendObjectDialogComponent implements OnInit {
   private _desc;
   private _title;
   private _rules;
-  private lendObject: FormGroup;
+  public lendObject: FormGroup;
 
   constructor(
     private _loggedInUserService: LoggedInUserService,

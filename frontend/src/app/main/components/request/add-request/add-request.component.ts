@@ -40,7 +40,7 @@ export class AddRequestComponent implements OnInit {
 export class AddRequestDialogComponent implements OnInit {
   private _selected: LendObject;
   private _lending: LendObject[];
-  private request: FormGroup;
+  public request: FormGroup;
   private _user: {id: string, name: string};
   private _fromdate: any;
   private _todate: any;

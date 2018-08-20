@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialogContent } from '@angular/material';
 import { LoggedInUserService } from '../../../services/logged-in-user.service';
 import { LendObject } from '../../../models/lend-object.model';
+import { DialogDataServiceService } from '../../../services/dialog-data-service.service';
 
 @Component({
   selector: 'app-info-lend-object',
@@ -9,16 +10,16 @@ import { LendObject } from '../../../models/lend-object.model';
   styleUrls: ['./info-lend-object.component.css']
 })
 export class InfoLendObjectComponent implements OnInit {
-  @Input() private _object: LendObject;
+  private _object: LendObject;
   constructor(
+    private dataservice: DialogDataServiceService,
     public dialogRef: MatDialogRef<InfoLendObjectComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: MatDialogContent,
     private loggedInUserService: LoggedInUserService
   ) {
   }
 
   public orderedlist(object) {
-    this._object = object;
+    this._object = this.dataservice.data;
     return this._object.waitinglist.sort((a, b) => {
       if (a.fromdate < b.fromdate) {
         return -1;
