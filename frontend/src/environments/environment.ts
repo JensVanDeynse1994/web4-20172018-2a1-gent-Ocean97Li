@@ -6,4 +6,4 @@
 export const environment = {
   production: false
 };
-export const BACKEND_URL = "";
+export const BACKEND_URL = '';

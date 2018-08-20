@@ -37,15 +37,16 @@ import { InfoLendObjectComponent } from './components/lend-object/info-lend-obje
 import { MainComponent } from './components/main/main.component';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { GOOGLE_MAPS_API_KEY } from '../../environments/api-keys';
 import { SelectedUserService } from './services/selected-user.service';
 import { ApproveRequestComponent, ApproveRequestDialogComponent } from './components/request/approve-request/approve-request.component';
 // tslint:disable-next-line:max-line-length
 import { ReturnLendObjectDialogComponent, ReturnLendObjectComponent } from './components/lend-object/return-lend-object/return-lend-object.component';
 import { httpInterceptorProviders } from '../http-interceptors';
 import { AuthGuardService } from '../user-auth/auth-guard.service';
+import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
 
-const api = GOOGLE_MAPS_API_KEY;
+
 const appRoutes: Routes = [
   { path: 'main', canActivate: [ AuthGuardService ], component: MainComponent},
   { path: '**', redirectTo: 'login'}
@@ -67,7 +68,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: api,
+      apiKey: 'FAKEAPI'
     }),
     RouterModule.forChild(appRoutes),
 
@@ -110,3 +111,4 @@ const appRoutes: Routes = [
   ]
 })
 export class MainModule {}
+

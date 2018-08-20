@@ -7,13 +7,12 @@ import { HttpModule } from '@angular/http';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AgmCoreModule } from '@agm/core';
-import { GOOGLE_MAPS_API_KEY } from '../../environments/api-keys';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { RealTimeService } from './real-time.service';
 import { basehttpInterceptorProviders } from '../http-interceptors';
+import { AppComponent } from '../app.component';
 
 // import { basehttpInterceptorProviders } from '../http-interceptors';
-const api = GOOGLE_MAPS_API_KEY;
 const routes = [
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
@@ -28,7 +27,7 @@ const routes = [
     FormsModule,
     AngularFontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: api
+      apiKey: 'FAKEAPI'
     }),
     RouterModule.forChild(routes),
   ],
