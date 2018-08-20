@@ -1,18 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css";
-@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto');
-@import url('https://fonts.googleapis.com/css?family=Comfortaa:700|Josefin+Slab|Poiret+One');
+@import url("https://fonts.googleapis.com/css?family=Raleway|Roboto");
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:700|Josefin+Slab|Poiret+One");
 html { height: 100% }
 body { height: 100%; margin: 0px; padding: 0px }
 label {font-weight: bold};
 /* general */
 
-.noPadding{
-    padding: 0px !important;
-}
+
 .padddingleft{
     padding-left: 4px;
 }
@@ -94,6 +92,7 @@ label,button {
     background-color: rgb(206, 7, 7);
 }
 
+
 /* animations */
 
 @keyframes appear {
@@ -104,4 +103,8 @@ label,button {
 @keyframes dissappear {
      from  {opacity: 1;}
      to  {opacity: 0;}
+    }
+
+    .noPadding{
+        padding: 0px !important;
     }
