@@ -66,8 +66,15 @@ export class AddRequestDialogComponent implements OnInit {
   }
 
   public get validDateCombo(): boolean {
-    return (this.fromdate <= this._todate)
-    && (this.fromdate.setHours(0, 0, 0, 0)).valueOf() >= (new Date().setHours(0, 0, 0, 0)).valueOf();
+    if (this._fromdate && this._todate) {
+      return (this._fromdate <= this._todate)
+      && (this._fromdate >= new Date().setHours(0, 0, 0, 0));
+    }
+   return false;
+  }
+
+  public get selected(): LendObject {
+    return this._selected;
   }
 
   public get fromdate(): Date {
@@ -106,10 +113,6 @@ export class AddRequestDialogComponent implements OnInit {
 
   public newSelected(object: LendObject) {
     this._selected = object;
-  }
-
-  public get selected() {
-    return this._selected;
   }
 
   public removeObject() {}

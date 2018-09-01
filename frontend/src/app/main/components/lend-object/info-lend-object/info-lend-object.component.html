@@ -5,14 +5,14 @@
       <app-lend-object [selected]='false' [selectable]='false' [lendObject]=object></app-lend-object>
     </div>
     <div class="row">
-      <div class="noPadding field col-12 col-md-6">
+      <div class=" field col-12 col-md-6">
         <label>Owner:</label>
         <div>
           <fa name=user-circle size=2x></fa>
           <h5 class="josefin inline">{{object.owner.name}}</h5>
         </div>
       </div>
-      <div class="noPadding field col-12 col-md-6">
+      <div class=" field col-12 col-md-6">
           <label>Current User:</label>
           <div>
             <fa *ngIf=object.user name=user-circle size=2x></fa>

@@ -29,7 +29,7 @@ const api = GOOGLE_MAPS_API;
     FormsModule,
     AngularFontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey:  UserAuthModule.api.toString() || api
+      apiKey: api
     }),
     RouterModule.forChild(routes),
   ],
@@ -45,10 +45,4 @@ const api = GOOGLE_MAPS_API;
   exports: []
 })
 export class UserAuthModule {
-  public static api: string;
-  constructor(private http: HttpClient) {
-    http.get('API/gmaps').subscribe(
-      p => UserAuthModule.api = p.toString()
-    );
-  }
 }

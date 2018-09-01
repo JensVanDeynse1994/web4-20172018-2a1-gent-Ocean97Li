@@ -86,6 +86,7 @@ export class RealTimeService {
     const observable = new Observable<string>(
       observer => {
         this.socket.on('return', (id) => {
+          console.log('return');
           observer.next(id);
         });
         return () => {

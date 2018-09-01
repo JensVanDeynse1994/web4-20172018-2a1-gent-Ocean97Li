@@ -23,7 +23,7 @@
     </div>
     <div>
       <button class="ui button blue" (click)="close()" type="button">Cancel</button>
-      <button [ngClass]={disabled:!selected||fromdate||todate||!validDateCombo} class="ui right button green" type="submit">Send it!</button>
+      <button [ngClass]={disabled:!selected||!fromdate||!todate||!validDateCombo} class="ui right button green" type="submit">Send it!</button>
     </div>
   </form>
 </div>

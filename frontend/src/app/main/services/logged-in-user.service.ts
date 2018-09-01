@@ -56,7 +56,9 @@ export class LoggedInUserService {
         });
         this._realtime.listenForReturnObject().subscribe(id => {
           if (id) {
+            console.log('return');
             this.getUsersFromServer();
+            this.loggedInUserfromUsers();
           }
         });
       }
@@ -196,12 +198,16 @@ export class LoggedInUserService {
       .post(url, undefined)
       .pipe(map((val: any) => LendObject.fromJSON(val)))
       .subscribe(lo => {
+        console.log('fail2');
+        console.log(lo);
         this._realtime.signalReturnObject(lo.owner.id);
         this.getUsersFromServer();
         this.loggedInUserfromUsers();
       },
       () => {
+        console.log('fail');
         this.getUsersFromServer();
+        this.loggedInUserfromUsers();
       });
   }
 
@@ -217,7 +223,7 @@ export class LoggedInUserService {
         ] = request.object;
         this.loggedInUser.next(this._user);
         this.fetchInRequest();
-        this._realtime.signalApproveDenyRequestToUser(request.object.owner.id);
+        this._realtime.signalApproveDenyRequestToUser(request.source.id);
       },
       () => {
         this.getUsersFromServer();

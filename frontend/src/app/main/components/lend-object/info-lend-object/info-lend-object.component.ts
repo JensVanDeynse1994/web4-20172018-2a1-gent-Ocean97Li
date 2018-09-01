@@ -16,10 +16,10 @@ export class InfoLendObjectComponent implements OnInit {
     public dialogRef: MatDialogRef<InfoLendObjectComponent>,
     private loggedInUserService: LoggedInUserService
   ) {
+    this._object = this.dataservice.data;
   }
 
-  public orderedlist(object) {
-    this._object = this.dataservice.data;
+  public orderedlist() {
     return this._object.waitinglist.sort((a, b) => {
       if (a.fromdate < b.fromdate) {
         return -1;

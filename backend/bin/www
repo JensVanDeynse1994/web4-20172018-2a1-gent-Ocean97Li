@@ -42,9 +42,9 @@ io.on('connection',(socket) => {
     socket.leave(id+'receive');
   });
 
-  socket.on('returned',function(id){
+  socket.on('return',function(id){
     socket.join(id+'receive');
-    socket.broadcast.to(id+'receive').emit('returned',id);
+    socket.broadcast.to(id+'receive').emit('return',id);
     socket.leave(id+'receive');
   });
 
