@@ -171,7 +171,7 @@ export class MapSettingsService {
   }
 
   public getMapApiKey(): string {
-    if (this._key) {
+    if (!this._key) {
     this._http.get('/API/gmaps').subscribe(
       res => {
         this._key = res.toString();
