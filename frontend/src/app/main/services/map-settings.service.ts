@@ -11,6 +11,7 @@ export class MapSettingsService {
   private _streetViewControl: boolean;
   private _zoomControl: boolean;
   private _styles: Object[];
+  private _key: string;
 
   constructor(private _http: HttpClient) {
     this._title = 'iShareEconomy';
@@ -170,13 +171,14 @@ export class MapSettingsService {
   }
 
   public getMapApiKey(): string {
-    let string;
+    if (this._key) {
     this._http.get('/API/gmaps').subscribe(
       res => {
-        string = res;
+        this._key = res.toString();
       }
     );
-    return string;
+  }
+    return this._key;
   }
 
 }
