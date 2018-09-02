@@ -3,8 +3,33 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css";
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import url("https://fonts.googleapis.com/css?family=Raleway|Roboto");
-@import url("https://fonts.googleapis.com/css?family=Comfortaa:700|Josefin+Slab|Poiret+One");
+@font-face {
+    font-family: 'Raleway';
+    src: url(https://fonts.googleapis.com/css?family=Raleway);
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url(https://fonts.googleapis.com/css?family=Roboto);
+}
+@font-face {
+    font-family: 'Comfortaa';
+    src: url(https://fonts.googleapis.com/css?family=Comfortaa:700);
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    src: url(https://fonts.googleapis.com/css?family=Comfortaa:700);
+}
+
+@font-face {
+    font-family: 'Josefin Slab';
+    src: url(https://fonts.googleapis.com/css?family=Josefin+Slab);
+}
+
+@font-face {
+    font-family: 'poiret one';
+    src: url(https://fonts.googleapis.com/css?family=Poiret+One);
+}
 html { height: 100% }
 body { height: 100%; margin: 0px; padding: 0px }
 label {font-weight: bold};
