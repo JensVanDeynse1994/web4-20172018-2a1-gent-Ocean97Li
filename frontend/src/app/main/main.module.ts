@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ApplicationModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
 import { UserComponent } from './components/user/user.component';
 import { SelectedUserPanelComponent } from './components/selected-user-panel/selected-user-panel.component';
@@ -43,7 +43,7 @@ import { ApproveRequestComponent, ApproveRequestDialogComponent } from './compon
 import { ReturnLendObjectDialogComponent, ReturnLendObjectComponent } from './components/lend-object/return-lend-object/return-lend-object.component';
 import { httpInterceptorProviders } from '../http-interceptors';
 import { AuthGuardService } from '../user-auth/auth-guard.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpBackend } from '@angular/common/http';
 import { Http } from '@angular/http';
 import { DialogDataServiceService } from './services/dialog-data-service.service';
 import { GOOGLE_MAPS_API } from '../../environments/environment.prod';
@@ -70,10 +70,9 @@ const api = GOOGLE_MAPS_API;
     ReactiveFormsModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: api
+      apiKey: api.apikey
     }),
     RouterModule.forChild(appRoutes),
-
   ],
   declarations: [
     MainComponent,
@@ -114,11 +113,5 @@ const api = GOOGLE_MAPS_API;
   ]
 })
 export class MainModule {
-  public static api: string;
-  constructor(private http: HttpClient) {
-    http.get('API/gmaps').subscribe(
-      p => MainModule.api = p.toString()
-    );
-  }
 }
 

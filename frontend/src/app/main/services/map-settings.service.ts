@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class MapSettingsService {
@@ -11,7 +12,7 @@ export class MapSettingsService {
   private _zoomControl: boolean;
   private _styles: Object[];
 
-  constructor() {
+  constructor(private _http: HttpClient) {
     this._title = 'iShareEconomy';
     this._lat = 51.043526;
     this._lng = 3.713618;
@@ -166,6 +167,16 @@ export class MapSettingsService {
 
    get styles(): Object[] {
     return this._styles;
+  }
+
+  public getMapApiKey(): string {
+    let string;
+    this._http.get('/API/gmaps').subscribe(
+      res => {
+        string = res;
+      }
+    );
+    return string;
   }
 
 }
