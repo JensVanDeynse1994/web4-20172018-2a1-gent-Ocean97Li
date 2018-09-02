@@ -4,10 +4,12 @@ import {Observable} from 'rxjs/Observable';
 import { BACKEND_URL } from '../../environments/environment';
 @Injectable()
 export class RealTimeService {
-  private socket = io('http://localhost:3000');
+  private socket;
   constructor() {
     if (BACKEND_URL) {
       this.socket = io(BACKEND_URL);
+    } else {
+      this.socket = io('http://localhost:3000');
     }
   }
 
