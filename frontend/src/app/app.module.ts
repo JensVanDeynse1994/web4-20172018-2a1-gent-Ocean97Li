@@ -24,7 +24,6 @@ import { GOOGLE_MAPS_API } from '../environments/environment.prod';
   bootstrap: [AppComponent],
   providers: [
     MapSettingsService,
-    GeolocationService,
     AuthenticationService,
     AuthGuardService
   ]

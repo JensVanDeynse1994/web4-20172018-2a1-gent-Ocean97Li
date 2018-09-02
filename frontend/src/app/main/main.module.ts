@@ -48,6 +48,7 @@ import { Http } from '@angular/http';
 import { DialogDataServiceService } from './services/dialog-data-service.service';
 import { GOOGLE_MAPS_API } from '../../environments/environment.prod';
 import { MapSettingsService } from './services/map-settings.service';
+import { GeolocationService } from './services/geolocation.service';
 
 
 const appRoutes: Routes = [
@@ -99,6 +100,7 @@ const api = GOOGLE_MAPS_API;
   providers: [
     LoggedInUserService,
     SelectedUserService,
+    GeolocationService,
     MatDialog,
     MatDatepicker,
     httpInterceptorProviders,

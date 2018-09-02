@@ -13,6 +13,7 @@ import { basehttpInterceptorProviders } from '../http-interceptors';
 import { AppComponent } from '../app.component';
 import { HttpClient } from '@angular/common/http';
 import { GOOGLE_MAPS_API } from '../../environments/environment.prod';
+import { GeolocationService } from '../main/services/geolocation.service';
 
 // import { basehttpInterceptorProviders } from '../http-interceptors';
 const routes = [
@@ -40,6 +41,7 @@ const api = GOOGLE_MAPS_API;
   ],
   providers: [
     RealTimeService,
+    GeolocationService,
     basehttpInterceptorProviders,
   ],
   exports: []
