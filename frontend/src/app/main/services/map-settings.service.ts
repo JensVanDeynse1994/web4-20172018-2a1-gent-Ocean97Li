@@ -171,13 +171,18 @@ export class MapSettingsService {
   }
 
   public getMapApiKey(): string {
+    console.log('this the key');
+    console.log(this._key);
     if (!this._key) {
     this._http.get('/API/gmaps').subscribe(
       res => {
         this._key = res.toString();
+        console.log(res);
       }
     );
   }
+    console.log('this the key2');
+    console.log(this._key);
     return this._key;
   }
 

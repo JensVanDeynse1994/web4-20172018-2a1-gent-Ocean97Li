@@ -2,6 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { MapsAPILoader } from '@agm/core';
 import { MapSettingsService } from './map-settings.service';
 import { Subject } from 'rxjs/Subject';
+import { GOOGLE_MAPS_API } from '../../../environments/environment.prod';
 declare let google: any;
 @Injectable()
 export class GeolocationService implements OnInit {
@@ -19,6 +20,7 @@ export class GeolocationService implements OnInit {
 
   ngOnInit(): void {
     this._geocoder = new google.maps.Geocoder();
+    GOOGLE_MAPS_API.apikey = this._mapsSettingsService.getMapApiKey();
   }
 
   findCurrentLocation(): any {
