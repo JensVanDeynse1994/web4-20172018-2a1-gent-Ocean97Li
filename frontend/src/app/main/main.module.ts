@@ -1,5 +1,5 @@
 import { NgModule, ApplicationModule } from '@angular/core';
-import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 import { UserComponent } from './components/user/user.component';
 import { SelectedUserPanelComponent } from './components/selected-user-panel/selected-user-panel.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -47,6 +47,7 @@ import { HttpClient, HttpHandler, HttpBackend } from '@angular/common/http';
 import { Http } from '@angular/http';
 import { DialogDataServiceService } from './services/dialog-data-service.service';
 import { GOOGLE_MAPS_API } from '../../environments/environment.prod';
+import { MapSettingsService } from './services/map-settings.service';
 
 
 const appRoutes: Routes = [
