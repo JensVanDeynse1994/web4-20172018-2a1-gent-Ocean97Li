@@ -263,7 +263,6 @@ router.post("/:user/using/:object/return", function (req, res, next) {
         res.json(req.user.obj);
       });
       } else {
-        //no new user
         res.json(req.user.obj);
       }
     })
