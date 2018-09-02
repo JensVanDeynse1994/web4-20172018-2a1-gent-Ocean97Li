@@ -248,8 +248,6 @@ router.post("/:user/using/:object/return", function (req, res, next) {
     req.user.obj.user = usage;
     User.findById(usage.id).exec(function (err, user) {
       if (err) next(err);
-      
-      
       newcurrentuser = user;
       newcurrentuser.using.push(req.user.obj);
     });
@@ -264,6 +262,8 @@ router.post("/:user/using/:object/return", function (req, res, next) {
           if (err) next(err);
         res.json(req.user.obj);
       });
+      } else {
+        res.json(req.user.obj);
       }
     })
   });

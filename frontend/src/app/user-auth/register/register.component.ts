@@ -144,7 +144,6 @@ export class RegisterComponent implements OnInit {
       .register(user)
       .subscribe(
         val => {
-          console.log(val);
           if (val) {
             this._router.navigate(['/main']);
           }
