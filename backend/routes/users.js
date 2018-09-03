@@ -10,6 +10,7 @@ let jwt = require("express-jwt");
 let auth = jwt({
   secret: process.env.BACKEND_SECRET
 });
+let api = process.env.GOOGLE_MAPS_API;
 
 //login and regsiter
 router.post("/register", function (req, res, next) {
@@ -203,8 +204,10 @@ router.get("/:user", auth, function (req, res, next) {
 
 //lending objects
 router.get("/:user/lending", function (req, res, next) {
-
-  res.json(req.user.lending);
+  User.findById(req.user._id).exec(function(err,user){
+    if(err) next(err);
+    res.json(user.lending)
+  })
 }, auth);
 
 router.post("/:user/lending", function (req, res, next) {

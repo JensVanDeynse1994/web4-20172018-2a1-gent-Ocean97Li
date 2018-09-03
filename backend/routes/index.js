@@ -3,9 +3,6 @@ var router = express.Router();
 let mongoose = require('mongoose');
 let LendObject = mongoose.model('LendObject');
 module.exports = router;
-router.get('/gmaps'), function(req,res,next){
-  res.json(process.env.GOOGLE_MAPS_API);
-}
 
 router.post('/check/request', function (req, res, next) {
   //fix the date 
@@ -39,11 +36,14 @@ router.post('/check/request', function (req, res, next) {
               }
             });
           }
-
         } 
         return res.json(resobject);
       });
   }
+});
+
+router.get('/google', function(req,res,next) {
+  res.json(process.env.GOOGLE_MAPS_API);
 });
 
 function isOutdatedRequest(fromdate) {

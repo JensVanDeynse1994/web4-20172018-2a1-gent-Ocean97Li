@@ -10,9 +10,7 @@ const appRoutes: Routes = [
     imports: [
         UserAuthModule,
         MainModule,
-        RouterModule.forRoot(appRoutes, {
-            preloadingStrategy: PreloadAllModules
-        }),
+        RouterModule.forRoot(appRoutes),
     ],
     exports: [RouterModule, UserAuthModule],
     providers: []

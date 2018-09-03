@@ -1,5 +1,5 @@
 import { NgModule, ApplicationModule } from '@angular/core';
-import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import { AgmCoreModule, MapsAPILoader, LAZY_MAPS_API_CONFIG } from '@agm/core';
 import { UserComponent } from './components/user/user.component';
 import { SelectedUserPanelComponent } from './components/selected-user-panel/selected-user-panel.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -46,16 +46,15 @@ import { AuthGuardService } from '../user-auth/auth-guard.service';
 import { HttpClient, HttpHandler, HttpBackend } from '@angular/common/http';
 import { Http } from '@angular/http';
 import { DialogDataServiceService } from './services/dialog-data-service.service';
-import { GOOGLE_MAPS_API } from '../../environments/environment.prod';
 import { MapSettingsService } from './services/map-settings.service';
 import { GeolocationService } from './services/geolocation.service';
-
+import { GOOGLE_MAPS_API } from '../app-load.service';
 
 const appRoutes: Routes = [
   { path: 'main', canActivate: [ AuthGuardService ], component: MainComponent},
   { path: '**', redirectTo: 'login'}
 ];
-const api = GOOGLE_MAPS_API;
+
 @NgModule({
   imports: [
     CommonModule,
@@ -72,7 +71,7 @@ const api = GOOGLE_MAPS_API;
     ReactiveFormsModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: api.apikey
+      apiKey: GOOGLE_MAPS_API.api
     }),
     RouterModule.forChild(appRoutes),
   ],
@@ -103,6 +102,7 @@ const api = GOOGLE_MAPS_API;
     GeolocationService,
     MatDialog,
     MatDatepicker,
+    MapSettingsService,
     httpInterceptorProviders,
     DialogDataServiceService
   ],

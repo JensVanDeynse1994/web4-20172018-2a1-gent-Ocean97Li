@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BACKEND_URL } from '../../../environments/environment';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class MapSettingsService {
@@ -11,7 +13,7 @@ export class MapSettingsService {
   private _streetViewControl: boolean;
   private _zoomControl: boolean;
   private _styles: Object[];
-  private _key: string;
+  private _key = new Subject<boolean>();
 
   constructor(private _http: HttpClient) {
     this._title = 'iShareEconomy';
@@ -170,19 +172,7 @@ export class MapSettingsService {
     return this._styles;
   }
 
-  public getMapApiKey(): string {
-    console.log('this the key');
-    console.log(this._key);
-    if (!this._key) {
-    this._http.get('/API/gmaps').subscribe(
-      res => {
-        this._key = res.toString();
-        console.log(res);
-      }
-    );
-  }
-    console.log('this the key2');
-    console.log(this._key);
+  public get api() {
     return this._key;
   }
 

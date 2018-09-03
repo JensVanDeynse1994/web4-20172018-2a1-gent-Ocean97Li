@@ -10,18 +10,14 @@ import { AgmCoreModule } from '@agm/core';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { RealTimeService } from './real-time.service';
 import { basehttpInterceptorProviders } from '../http-interceptors';
-import { AppComponent } from '../app.component';
-import { HttpClient } from '@angular/common/http';
-import { GOOGLE_MAPS_API } from '../../environments/environment.prod';
 import { GeolocationService } from '../main/services/geolocation.service';
+import { GOOGLE_MAPS_API } from '../app-load.service';
 
-// import { basehttpInterceptorProviders } from '../http-interceptors';
 const routes = [
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent }
 ];
-const api = GOOGLE_MAPS_API;
 @NgModule({
   imports: [
     CommonModule,
@@ -30,7 +26,7 @@ const api = GOOGLE_MAPS_API;
     FormsModule,
     AngularFontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: api.apikey
+      apiKey: GOOGLE_MAPS_API.api
     }),
     RouterModule.forChild(routes),
   ],
