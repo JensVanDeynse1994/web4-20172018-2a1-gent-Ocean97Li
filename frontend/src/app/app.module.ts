@@ -10,7 +10,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material';
 import { AppLoadService } from './app-load.service';
 
-export function get_settings(appLoadService: AppLoadService) {
+export function get_api(appLoadService: AppLoadService) {
   return () => appLoadService.getAPI();
 }
 
@@ -28,7 +28,7 @@ export function get_settings(appLoadService: AppLoadService) {
   bootstrap: [AppComponent],
   providers: [
     AppLoadService,
-    { provide: APP_INITIALIZER, useFactory: get_settings, deps: [AppLoadService], multi: true },
+    { provide: APP_INITIALIZER, useFactory: get_api, deps: [AppLoadService], multi: true },
     MapSettingsService,
     AuthenticationService,
     AuthGuardService
